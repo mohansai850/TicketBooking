@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "PNR")
-    private String pnr;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Ticket ID")
+    private Integer id;
 
     @Column(name = "list of passengers")
     private String[] passengers;

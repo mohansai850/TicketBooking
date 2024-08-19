@@ -8,4 +8,7 @@ import java.util.Optional;
 public interface ITicketService {
     Ticket generateNewTicket(Ticket ticket);
     List<Ticket> getAllTickets();
+    Ticket getTicket(Integer id);
+    Ticket updateTicket(Ticket newTicket);
+    String deleteTicketById(Integer id);
 }

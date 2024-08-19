@@ -24,4 +24,21 @@ public class TicketService implements ITicketService {
     public List<Ticket> getAllTickets() {
         return repo.findAll();
     }
+
+    @Override
+    public Ticket getTicket(Integer id) {
+        Optional<Ticket> optional = repo.findById(id);
+        return optional.get();
+    }
+
+    @Override
+    public Ticket updateTicket(Ticket newTicket) {
+        return repo.save(newTicket);
+    }
+
+    @Override
+    public String deleteTicketById(Integer id) {
+        repo.deleteById(id);
+        return "Deleted";
+    }
 }
