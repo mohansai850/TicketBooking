@@ -3,17 +3,28 @@ package com.mohan.TicketBooking.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Data
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Ticket ID")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer PNR;
 
-    @Column(name = "list of passengers")
-    private String[] passengers;
+    private String flightNumber;
 
-    @Column(name = "Total Fare")
+//    @ElementCollection
+    private List<String> passengers;
+
+    private Integer fare;
+
     private Integer amount;
+
+    @Column(name = "Date of Journey")
+    private LocalDate doj;
+
+    private LocalDateTime bookingDateAndTime;
 }

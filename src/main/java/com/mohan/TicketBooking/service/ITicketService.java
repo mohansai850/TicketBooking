@@ -10,5 +10,5 @@ public interface ITicketService {
     List<Ticket> getAllTickets();
     Ticket getTicket(Integer id);
     Ticket updateTicket(Ticket newTicket);
-    String deleteTicketById(Integer id);
+    Ticket deleteTicketById(Integer id);
 }

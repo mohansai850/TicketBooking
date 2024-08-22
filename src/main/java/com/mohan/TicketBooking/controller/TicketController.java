@@ -25,7 +25,7 @@ public class TicketController {
     @PostMapping("/newTicket")
     public ResponseEntity<Ticket> generateNewTicket(@RequestBody Ticket ticket){
         Ticket newTicket = service.generateNewTicket(ticket);
-        return new ResponseEntity<Ticket>(newTicket,HttpStatus.OK);
+        return new ResponseEntity<Ticket>(newTicket,HttpStatus.CREATED);
     }
     
     @GetMapping("/tickets")
@@ -47,8 +47,8 @@ public class TicketController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Integer id){
-        String msg = service.deleteTicketById(id);
-        return new ResponseEntity<String>(msg,HttpStatus.OK);
+    public ResponseEntity<Ticket> deleteById(@PathVariable Integer id){
+        Ticket deletedTicket = service.deleteTicketById(id);
+        return new ResponseEntity<Ticket>(deletedTicket,HttpStatus.OK);
     }
 }
